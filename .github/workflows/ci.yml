@@ -36,7 +36,7 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          args: deploy --prod --dir=dist/apps/ticket-swap-app --filter ticket-swap-app
+          args: deploy --prod --dir=dist/apps/ticket-swap-app
           
       - name: Deploy backend to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
