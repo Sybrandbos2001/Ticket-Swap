@@ -4,10 +4,10 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
-    "build": "nx build",
+    "build": "nx run-many --target=build --all",
     "build_backend": "nx build ticket-swap-api --prod",
     "build_frontend": "nx build ticket-swap-app --prod",
-    "test": "nx test",
+    "test": "nx run-many --target=test --all",
     "test_backend": "nx test ticket-swap-api",
     "test_frontend": "nx test ticket-swap-app"
   },
@@ -23,8 +23,10 @@
     "@angular/router": "~18.2.0",
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
+    "@nestjs/mongoose": "^10.1.0",
     "@nestjs/platform-express": "^10.0.2",
     "axios": "^1.6.0",
+    "mongoose": "^8.8.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "zone.js": "~0.14.3"
