@@ -30,7 +30,7 @@ jobs:
       - name: Run tests
         run: npm run test
         
-      - name: Deploy frontend to netlify
+      - name: Deploy frontend to Netlify
         uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
@@ -38,7 +38,7 @@ jobs:
         with:
           args: deploy --prod --dir=dist/apps/ticket-swap-app --filter ticket-swap-app
           
-     - name: Deploy backend to Heroku
+      - name: Deploy backend to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
