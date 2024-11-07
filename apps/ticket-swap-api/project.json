@@ -1,0 +1,26 @@
+{
+  "name": "ticket-swap-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ticket-swap-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "ticket-swap-api:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ticket-swap-api:build:development"
+        },
+        "production": {
+          "buildTarget": "ticket-swap-api:build:production"
+        }
+      }
+    }
+  }
+}
