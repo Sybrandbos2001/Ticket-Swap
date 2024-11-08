@@ -24,8 +24,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build API only
-        run: nx build ticket-swap-api
+      - name: Build apps
+        run: npm run build
+
+      - name: Run tests
+        run: npm run test
 
       - name: Deploy frontend to Netlify
         uses: netlify/actions/cli@master
