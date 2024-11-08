@@ -38,10 +38,9 @@ jobs:
         with:
           args: deploy --prod --dir=dist/apps/ticket-swap-app --filter ticket-swap-app
 
-      - name: Deploy backend to Heroku
+      - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
-          appdir: dist/apps/ticket-swap-api
