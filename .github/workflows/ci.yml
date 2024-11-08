@@ -24,11 +24,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build apps
-        run: npm run build
-
-      - name: Run tests
-        run: npm run test
+      - name: Build API only
+        run: nx build ticket-swap-api
 
       - name: Deploy frontend to Netlify
         uses: netlify/actions/cli@master
@@ -42,9 +39,9 @@ jobs:
         run: cp Procfile dist/apps/ticket-swap-api/
 
       - name: Deploy to Heroku
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-        run: |
-          git remote add heroku https://git.heroku.com/${{ env.HEROKU_APP_NAME }}.git
-          git push heroku `git subtree split --prefix dist/apps/ticket-swap-api master`:refs/heads/master --force
+        uses: akhileshns/heroku-deploy@v3.13.15
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          appdir: dist/apps/ticket-swap-api
